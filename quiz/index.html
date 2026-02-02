@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melo Quiz Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <h1>Melo Quiz</h1>
+            </div>
+            <div class="nav-right">
+                <button id="soundToggle" class="sound-toggle" title="Toggle Sound">🔊</button>
+                <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+                <a href="#leaderboard" class="nav-link">Leaderboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Audio Elements -->
+    <audio id="correctSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj==" type="audio/wav">
+    </audio>
+    <audio id="wrongSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBg==" type="audio/wav">
+    </audio>
+
+    
+    <section class="hero-section">
+        <div class="container">
+            <h2>Welcome to Melo Quiz!</h2>
+            <p>Test your knowledge and compete with others</p>
+            
+            
+            <div id="nameSection" class="name-section">
+                <label for="userName">Enter Your Name:</label>
+                <input type="text" id="userName" placeholder="Your name here...">
+                <button id="startBtn" class="start-button">Start Quiz</button>
+                <p id="nameError" class="error-message"></p>
+            </div>
+
+            
+            <div id="difficultySection" class="difficulty-section">
+                <h3>Select Difficulty Level</h3>
+                <div class="difficulty-buttons">
+                    <button id="easyBtn" class="difficulty-btn easy">
+                        <span class="difficulty-label">Easy</span>
+                        <span class="difficulty-desc">Basic concepts</span>
+                    </button>
+                    <button id="mediumBtn" class="difficulty-btn medium">
+                        <span class="difficulty-label">Medium</span>
+                        <span class="difficulty-desc">Intermediate level</span>
+                    </button>
+                    <button id="hardBtn" class="difficulty-btn hard">
+                        <span class="difficulty-label">Hard</span>
+                        <span class="difficulty-desc">Advanced topics</span>
+                    </button>
+                </div>
+            </div>
+
+            
+            <div id="quizSection" class="quiz-section">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <div class="timer-box">
+                    <p>Time: <span id="timer">15</span> seconds</p>
+                </div>
+                
+                <div class="question-box">
+                    <h3 id="questionText">Question will appear here</h3>
+                </div>
+
+                <div class="options-box" id="optionsBox">
+                    
+                </div>
+
+                <div class="score-info">
+                    <p>Question: <span id="currentQuestion">1</span>/10</p>
+                    <p>Score: <span id="currentScore">0</span></p>
+                </div>
+            </div>
+
+            
+            <div id="resultSection" class="result-section">
+                <h2>Quiz Completed!</h2>
+                <p class="result-name">Player: <span id="resultName"></span></p>
+                <p class="result-score">Your Score: <span id="finalScore"></span>/10</p>
+                <button id="playAgainBtn" class="play-again-button">Play Again</button>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="leaderboard" class="leaderboard-section">
+        <div class="container">
+            <h2>Leaderboard</h2>
+            <div id="leaderboardTable" class="leaderboard-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <button id="clearHistoryBtn" class="clear-button">Clear Leaderboard</button>
+        </div>
+    </section>
+
+    
+    <script src="./questions.js"></script>
+    <script src="./quize.js"></script>
+    <script src="./history.js"></script>
+    <script src="./darkmode.js"></script>
+</body>
+</html>
